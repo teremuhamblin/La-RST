@@ -108,11 +108,9 @@ Note : Toute modification substantielle doit être validée par l’équipe de c
 
 📞 Contact
 
-Email : contact@laroulottesolidaire.fr
-
-Instagram : @laroulottesolidaire
-
-Facebook : La Roulotte Solidaire Toulouse
+Email : laroulottesolidaire@gmail.com
+Instagram : A DÉFINIR 
+Facebook : A DÉFINIR 
 
 📄 Licence d’utilisation
 
