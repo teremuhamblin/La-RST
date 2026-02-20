@@ -1,0 +1,96 @@
+name: Controle Qualite Roulotte Solidaire
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  controle-qualite:
+    name: Vérification des fichiers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v3
+
+      - name: Liste des fichiers modifiés
+        id: fichiers
+        run: |
+          echo "files=$(jq -r '.pull_request.head.sha' $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
+
+      - name: Vérification du nommage des fichiers
+        run: |
+          echo "🔍 Vérification du nommage..."
+          erreurs=0
+          for f in $(git diff --name-only HEAD~1); do
+            if [[ "$f" =~ ^(photos|videos)/.*\.(jpg|jpeg|png|mp4)$ ]]; then
+              if ! [[ "$f" =~ (photo|video)_[0-9]{4}-[0-9]{2}-[0-9]{2}_[A-Za-z0-9-]+_[a-z0-9-]+\.(jpg|jpeg|png|mp4)$ ]]; then
+                echo "❌ Mauvais nommage : $f"
+                erreurs=1
+              fi
+            fi
+          done
+          if [ $erreurs -eq 1 ]; then
+            exit 1
+          fi
+          echo "✔️ Nommage correct"
+
+      - name: Vérification de la taille des fichiers
+        run: |
+          echo "🔍 Vérification de la taille..."
+          for f in $(git diff --name-only HEAD~1); do
+            if [[ -f "$f" ]]; then
+              size=$(stat -c%s "$f")
+              if [ $size -gt 200000000 ]; then
+                echo "❌ Fichier trop volumineux (>200 Mo) : $f"
+                exit 1
+              fi
+            fi
+          done
+          echo "✔️ Taille des fichiers OK"
+
+      - name: Vérification des extensions autorisées
+        run: |
+          echo "🔍 Vérification des extensions..."
+          for f in $(git diff --name-only HEAD~1); do
+            if [[ "$f" =~ \.(exe|zip|rar|7z|pdf|docx)$ ]]; then
+              echo "❌ Extension interdite : $f"
+              exit 1
+            fi
+          done
+          echo "✔️ Extensions conformes"
+
+      - name: Vérification des descriptions
+        run: |
+          echo "🔍 Vérification des descriptions..."
+          erreurs=0
+          for f in $(git diff --name-only HEAD~1); do
+            if [[ "$f" =~ ^(photos|videos)/ ]]; then
+              dossier=$(dirname "$f")
+              if [ ! -f "$dossier/DESCRIPTION.md" ]; then
+                echo "❌ Pas de DESCRIPTION.md pour : $dossier"
+                erreurs=1
+              fi
+            fi
+          done
+          if [ $erreurs -eq 1 ]; then
+            exit 1
+          fi
+          echo "✔️ Descriptions présentes"
+
+      - name: Vérification de contenu sensible (mots-clés)
+        run: |
+          echo "🔍 Vérification de contenu sensible..."
+          mots_interdits="nom|adresse|numéro|carte|papiers|santé|maladie|asile|dossier"
+          for f in $(git diff --name-only HEAD~1); do
+            if [[ "$f" =~ \.(md|txt)$ ]]; then
+              if grep -Ei "$mots_interdits" "$f"; then
+                echo "❌ Contenu sensible détecté dans : $f"
+                exit 1
+              fi
+            fi
+          done
+          echo "✔️ Aucun contenu sensible détecté"
+
+      - name: Résultat final
+        run: echo "🎉 Toutes les vérifications sont passées avec succès !"
