@@ -120,10 +120,7 @@ Si vous repérez :
 - Une faille de sécurité  
 - Un comportement inapproprié dans les contributions  
 
-Merci de le signaler immédiatement :
-
-📧 contact@laroulottesolidaire.fr
-
+Merci de le signaler immédiatement à l'équipe.
 ---
 
 ✔️ 8. Engagement
