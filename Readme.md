@@ -33,5 +33,9 @@ Voir le fichier `CONTRIBUTING.md` pour les bonnes pratiques.
 ## 📜 Licence
 
 Le contenu de ce dépôt est destiné à l’usage de La Roulotte Solidaire
-et de ses partenaires. Licence à préciser (exemple : Creative Commons
-BY-NC-SA) selon décision du bureau.
+et de ses partenaires.
+
+- Mise à jour ;
+« Le contenu de ce dépôt est publié sous la licence GNU General Public License version 3.0.  
+Toute redistribution ou modification doit être partagée sous la même licence. »
+
