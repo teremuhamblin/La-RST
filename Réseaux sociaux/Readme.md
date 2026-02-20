@@ -98,7 +98,7 @@ Ce document sert de guide officiel pour la gestion et la création de contenus s
 
 ## 📞 Contact
 Pour toute question ou validation :
-- Email : contact@laroulottesolidaire.fr
+- Email : laroulottesolidaire@gmail.fr
 - Coordination communication : interne
 
 ---
