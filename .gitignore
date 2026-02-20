@@ -1,0 +1,10 @@
+# Fichiers temporaires
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Éventuels exports lourds
+*.psd
+*.ai
+*.zip
