@@ -1,10 +1,136 @@
-# Fichiers temporaires
-*.tmp
-*.log
-.DS_Store
-Thumbs.db
+###############################################
+#  LA ROULOTTE SOLIDAIRE — GITIGNORE GLOBAL  #
+###############################################
 
-# Éventuels exports lourds
-*.psd
-*.ai
+###############
+# PYTHON CORE #
+###############
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Local Python configs
+.python-version
+
+########################
+# JUPYTER / DATA SCIENCE
+########################
+.ipynb_checkpoints/
+*.ipynb_convert/
+*.nbconvert/
+*.checkpoint.ipynb
+
+# Large data files (optionnel)
+data/raw/
+data/tmp/
+*.sqlite
+*.db
+
+########################
+# DOCUMENTATION / SITES
+########################
+docs/_build/
+site/
+mkdocs_build/
+build_docs/
+
+########################
+# EDITORS / IDE
+########################
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# Spyder / Rope
+.spyderproject
+.spyproject
+.ropeproject
+
+########################
+# LOGS / TEMP FILES
+########################
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+########################
+# OS / SYSTEM FILES
+########################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+########################
+# IMAGES / MEDIA
+########################
+
+# Thumbnails or auto-generated images
+*_thumb.*
+*_thumbnail.*
+.cache_images/
+
+# Exported media
+exports/
+generated/
+output/
+
+########################
+# OFFICE / PDF EXPORTS
+########################
+
+# Documents generated automatically
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+
+# Except if you want to keep official docs:
+# !docs/*.pdf
+# !docs/*.docx
+
+########################
+# ARCHIVES
+########################
 *.zip
+*.tar
+*.tar.gz
+*.rar
+
+########################
+# WEB / FRONTEND (si un jour utile)
+########################
+node_modules/
+dist/
+build/
+*.map
+
+########################
+# SECURITY / SECRETS
+################
