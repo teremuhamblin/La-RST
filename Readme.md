@@ -1,41 +1,121 @@
-# Kit Multimédia – La Roulotte Solidaire (Toulouse)
+# 🚐 La Roulotte Solidaire Toulouse (La‑RST)
 
-Ce dépôt rassemble les ressources visuelles, textuelles et pratiques
-pour communiquer sur **La Roulotte Solidaire** et faciliter le travail
-des bénévoles, partenaires et soutiens.
+Bienvenue dans le dépôt officiel de **La Roulotte Solidaire Toulouse**, une initiative citoyenne et associative dédiée à l’entraide, au lien social et à la dignité des personnes en situation de précarité.
 
-## 🎯 Objectifs
+Ce dépôt centralise :
+- les documents officiels de l’association  
+- les guides opérationnels pour les bénévoles  
+- l’identité visuelle  
+- les ressources techniques  
+- les scripts internes  
+- les supports de communication  
+- les photos et vidéos de terrain  
 
-- Assurer une identité visuelle cohérente
-- Centraliser les documents officiels et supports de communication
-- Proposer des modèles prêts à l’emploi (posts, flyers, présentations)
-- Offrir des guides clairs pour les bénévoles
+Il sert de **référence unique** pour l’ensemble des membres, bénévoles et partenaires.
 
-## 📁 Structure
+---
 
-- `Identite-visuelle/` : logos, couleurs, typographies, charte graphique
-- `Reseaux-sociaux/` : templates, posts validés, carrousels
-- `Photos-et-Videos/` : actions de rue, événements, portraits
-- `Documents-officiels/` : attestations, dossiers partenaires, flyers
-- `Scripts-et-guides/` : présentations, guides bénévoles, projets (ex : Pause Digne)
-- `Ressources-techniques/` : QR codes, liens utiles, tutoriels
+## 🗂️ Structure du dépôt
 
-## 🤝 Contribution
+### **📄 Document officiel/**
+Contient tous les documents institutionnels :
+- statuts  
+- règlements  
+- attestations  
+- modèles administratifs  
+- documents destinés aux partenaires  
 
-Les bénévoles peuvent proposer des ajouts ou modifications via :
+### **📘 Guides/**
+Guides pratiques et opérationnels :
+- procédures bénévoles  
+- sécurité  
+- organisation des maraudes  
+- formation interne  
 
-- Issues (proposer une idée ou signaler un problème)
-- Pull requests (proposer une modification concrète)
-- Discussions (échanger sur les contenus)
+### **🎨 Identité visuelle/**
+Éléments graphiques officiels :
+- logos  
+- charte graphique  
+- polices  
+- templates Canva ou print  
 
-Voir le fichier `CONTRIBUTING.md` pour les bonnes pratiques.
+### **📸 Photos et vidéos/**
+Supports visuels :
+- photos terrain  
+- portraits  
+- vidéos de communication  
+- archives médias  
+
+### **🛠️ Ressource technique/**
+Documentation technique interne :
+- réseaux  
+- téléphonie  
+- APN / configurations  
+- informatique  
+- ressources pour dépannage  
+- scripts techniques  
+
+### **📱 Réseaux sociaux/**
+Supports de communication :
+- posts  
+- carrousels  
+- stories  
+- vidéos  
+- archives de publications  
+
+### **💻 Scripts/**
+Scripts internes (Python, Shell, utilitaires) :
+- automatisations  
+- outils internes  
+- prototypes techniques  
+
+---
+
+## 🔒 Sécurité & confidentialité
+
+Le fichier **Sécurité.md** détaille :
+- les bonnes pratiques internes  
+- la gestion des données sensibles  
+- les règles de confidentialité  
+- les procédures en cas d’incident  
+
+Merci de le lire attentivement avant toute contribution.
+
+---
+
+## 🧩 Contribution
+
+Les contributions sont les bienvenues, dans le respect de :
+- la confidentialité  
+- la sécurité  
+- la cohérence graphique  
+- la qualité documentaire  
+
+Pour contribuer :
+1. Crée une branche dédiée  
+2. Propose tes modifications  
+3. Ouvre une Pull Request  
+4. Attends la validation d’un responsable  
+
+---
 
 ## 📜 Licence
 
-Le contenu de ce dépôt est destiné à l’usage de La Roulotte Solidaire
-et de ses partenaires.
+Le dépôt est sous licence **Licence.rst**.  
+Merci de consulter ce fichier pour connaître les droits d’utilisation.
 
-- Mise à jour ;
-« Le contenu de ce dépôt est publié sous la licence GNU General Public License version 3.0.  
-Toute redistribution ou modification doit être partagée sous la même licence. »
+---
 
+## 🤝 Contact
+
+Pour toute question ou demande :
+- via GitHub Issues  
+- via les responsables de La Roulotte Solidaire Toulouse  
+- via les canaux internes de communication  
+
+---
+
+## ❤️ Remerciements
+
+Merci à tous les bénévoles, partenaires et soutiens qui font vivre La Roulotte Solidaire Toulouse au quotidien.  
+Votre engagement change des vies.
