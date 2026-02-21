@@ -1,0 +1,14 @@
+{
+  "name": "@teremuhamblin/la-rst-docs",
+  "version": "1.0.0",
+  "description": "Package officiel des documents validés de La Roulotte Solidaire Toulouse.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teremuhamblin/La-RST.git"
+  },
+  "author": "La Roulotte Solidaire Toulouse",
+  "license": "SEE LICENSE IN Licence.rst",
+  "files": [
+    "docs/"
+  ]
+}
