@@ -1,9 +1,9 @@
 ###############################################
-#  LA ROULOTTE SOLIDAIRE — GITIGNORE GLOBAL  #
+#  LA ROULOTTE SOLIDAIRE — GITIGNORE SUR-MESURE
 ###############################################
 
 ###############
-# PYTHON CORE #
+# PYTHON (Scripts)
 ###############
 __pycache__/
 *.py[cod]
@@ -14,65 +14,67 @@ __pycache__/
 .venv
 env/
 venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Local Python configs
 .python-version
 
-########################
-# JUPYTER / DATA SCIENCE
-########################
-.ipynb_checkpoints/
-*.ipynb_convert/
-*.nbconvert/
-*.checkpoint.ipynb
+###############
+# DOCUMENTS / EXPORTS
+###############
 
-# Large data files (optionnel)
-data/raw/
-data/tmp/
-*.sqlite
-*.db
+# Fichiers générés automatiquement
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.odt
+*.ods
+*.odp
 
-########################
-# DOCUMENTATION / SITES
-########################
-docs/_build/
-site/
-mkdocs_build/
-build_docs/
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
 
-########################
-# EDITORS / IDE
-########################
+# Exports temporaires
+exports/
+output/
+generated/
+
+###############
+# IMAGES / MÉDIAS
+###############
+
+# Miniatures ou caches
+*_thumb.*
+*_thumbnail.*
+.cache_images/
+.cache/
+
+# Fichiers lourds générés automatiquement
+*.tmp
+*.temp
+
+###############
+# RÉDACTION / ÉDITEURS
+###############
 
 # VS Code
 .vscode/
 *.code-workspace
 
-# PyCharm / JetBrains
+# JetBrains / PyCharm
 .idea/
 *.iml
 
-# Spyder / Rope
-.spyderproject
-.spyproject
-.ropeproject
-
-########################
-# LOGS / TEMP FILES
-########################
-*.log
-*.tmp
-*.temp
+# LibreOffice / Office autosave
+.~lock*
 *.bak
-*.swp
-*.swo
 
-########################
-# OS / SYSTEM FILES
-########################
+###############
+# OS / SYSTEME
+###############
 
 # macOS
 .DS_Store
@@ -87,50 +89,26 @@ Desktop.ini
 # Linux
 *~
 
-########################
-# IMAGES / MEDIA
-########################
+###############
+# GITHUB / CI
+###############
 
-# Thumbnails or auto-generated images
-*_thumb.*
-*_thumbnail.*
-.cache_images/
+# Actions caches
+.github/workflows/*.log
+.github/workflows/*_cache/
 
-# Exported media
-exports/
-generated/
-output/
+###############
+# SÉCURITÉ / CONFIG
+###############
 
-########################
-# OFFICE / PDF EXPORTS
-########################
+# Fichiers sensibles
+*.env.local
+*.secret
+secrets/
+config/local/
+credentials/
 
-# Documents generated automatically
-*.pdf
-*.docx
-*.xlsx
-*.pptx
-
-# Except if you want to keep official docs:
-# !docs/*.pdf
-# !docs/*.docx
-
-########################
-# ARCHIVES
-########################
-*.zip
-*.tar
-*.tar.gz
-*.rar
-
-########################
-# WEB / FRONTEND (si un jour utile)
-########################
-node_modules/
-dist/
-build/
-*.map
-
-########################
-# SECURITY / SECRETS
-################
+###############
+# NOTEBOOKS (si un jour utile)
+###############
+.ipynb_checkpoints/
