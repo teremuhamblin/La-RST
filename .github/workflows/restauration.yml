@@ -1,0 +1,42 @@
+name: Restauration - La Roulotte Solidaire
+
+on:
+  workflow_dispatch:   # Lancement manuel uniquement
+
+jobs:
+  restauration:
+    name: Restauration du dépôt depuis le miroir
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt principal
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      ############################################################
+      # 1. CONFIGURATION DU DEPOT DE SAUVEGARDE
+      ############################################################
+      - name: Configuration du dépôt miroir
+        run: |
+          echo "🔧 Configuration du dépôt miroir..."
+          git remote add backup "${{ secrets.BACKUP_REPO_URL }}"
+          git fetch backup
+
+      ############################################################
+      # 2. RESTAURATION COMPLETE
+      ############################################################
+      - name: Restauration depuis le dépôt miroir
+        run: |
+          echo "🔄 Restauration en cours..."
+          git reset --hard backup/main
+          echo "✔️ Restauration terminée"
+
+      ############################################################
+      # 3. PUSH DES DONNÉES RESTAURÉES
+      ############################################################
+      - name: Push vers le dépôt principal
+        run: |
+          echo "⬆️ Mise à jour du dépôt principal..."
+          git push --force origin main
+          echo
