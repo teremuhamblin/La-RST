@@ -1,0 +1,40 @@
+name: Publier le package La-RST-Docs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Guides/**"
+      - "Document officiel/**"
+      - "Identité visuelle/**"
+      - "Ressource technique/**"
+      - "Sécurité.md"
+      - "Readme.md"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer Pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Générer les PDF et HTML
+        run: |
+          mkdir -p packages/la-rst-docs/docs
+          find "Guides" -name "*.md" -exec pandoc {} -o packages/la-rst-docs/docs/$(basename {} .md).pdf \;
+          find "Document officiel" -name "*.md" -exec pandoc {} -o packages/la-rst-docs/docs/$(basename {} .md).pdf \;
+
+      - name: Configurer npm pour GitHub Packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+      - name: Publier le package
+        run: |
+          cd packages/la-rst-docs
+          npm version patch
+          npm publish --registry=https://npm.pkg.github.com
