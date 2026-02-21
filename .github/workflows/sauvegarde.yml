@@ -1,0 +1,33 @@
+name: Sauvegarde Automatique - La Roulotte Solidaire
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # Tous les jours à 03h00
+  workflow_dispatch:       # Permet un lancement manuel
+
+jobs:
+  sauvegarde:
+    name: Sauvegarde du dépôt vers un miroir privé
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0   # Important : récupère tout l’historique
+
+      ############################################################
+      # 1. CONFIGURATION DU DEPOT MIRROIR
+      ############################################################
+      - name: Configuration du dépôt miroir
+        run: |
+          echo "🔧 Configuration du dépôt miroir..."
+          git remote add backup "${{ secrets.BACKUP_REPO_URL }}"
+
+      ############################################################
+      # 2. PUSH VERS LE DEPOT DE SAUVEGARDE
+      ############################################################
+      - name: Sauvegarde vers le dépôt miroir
+        run: |
+          echo "🔄 Sauvegarde en cours..."
+          git push --mirror
