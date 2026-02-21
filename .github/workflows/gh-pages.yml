@@ -1,0 +1,49 @@
+name: Déploiement du site La-RST
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Readme.md"
+      - "Guides/**"
+      - "Document officiel/**"
+      - "Sécurité.md"
+      - ".github/workflows/gh-pages.yml"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Installer Jekyll et Bundler
+        run: |
+          gem install jekyll bundler
+
+      - name: Construire le site
+        run: |
+          mkdir -p site
+          cp Readme.md site/index.md || true
+          mkdir -p site/guides
+          mkdir -p site/docs
+          find "Guides" -name "*.md" -exec cp {} site/guides/ \; || true
+          find "Document officiel" -name "*.md" -exec cp {} site/docs/ \; || true
+          cat > site/_config.yml <<EOF
+          title: "La Roulotte Solidaire Toulouse"
+          description: "Documentation publique, guides et documents de référence."
+          theme: minima
+          EOF
+
+      - name: Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
