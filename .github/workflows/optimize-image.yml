@@ -1,0 +1,40 @@
+name: Optimisation des images
+
+on:
+  push:
+    paths:
+      - "Photos et vidéos/**"
+      - "Identité visuelle/**"
+      - "**/*.png"
+      - "**/*.jpg"
+      - "**/*.jpeg"
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer imagemin
+        run: |
+          npm install -g imagemin-cli imagemin-mozjpeg imagemin-pngquant
+
+      - name: Optimiser les images
+        run: |
+          imagemin "**/*.{jpg,jpeg,png}" --plugin=mozjpeg --plugin=pngquant > /dev/null 2>&1 || true
+
+      - name: Commit des images optimisées
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Optimisation automatique des images" || echo "Aucun changement"
+
+      - name: Créer une Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "Optimisation automatique des images"
+          body: "Compression automatique des images ajoutées."
+          branch: "auto/optimize-images"
