@@ -1,0 +1,64 @@
+name: Maintenance Automatique - La Roulotte Solidaire
+
+on:
+  schedule:
+    - cron: "0 2 * * *"   # Tous les jours à 02h00
+  workflow_dispatch:       # Permet de lancer manuellement
+
+jobs:
+  maintenance:
+    name: Maintenance du dépôt
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v3
+
+      ############################################################
+      # 1. SUPPRESSION DES MÉTADONNÉES EXIF (PROTECTION DIGNITÉ)
+      ############################################################
+      - name: Nettoyage EXIF des images
+        run: |
+          echo "🧹 Suppression des métadonnées EXIF..."
+          sudo apt-get update
+          sudo apt-get install -y exiftool
+          for f in $(find photos -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \)); do
+            exiftool -overwrite_original -all= "$f"
+            echo "EXIF nettoyé : $f"
+          done
+
+      ############################################################
+      # 2. COMPRESSION AUTOMATIQUE DES IMAGES
+      ############################################################
+      - name: Compression des images
+        run: |
+          echo "📦 Compression des images..."
+          sudo apt-get install -y imagemagick
+          for f in $(find photos -type f \( -iname "*.jpg" -o -iname "*.jpeg" \)); do
+            mogrify -strip -resize 1920x1920\> -quality 85 "$f"
+            echo "Compressé : $f"
+          done
+
+      ############################################################
+      # 3. VÉRIFICATION DES FICHIERS ORPHELINS
+      ############################################################
+      - name: Vérification des fichiers sans DESCRIPTION.md
+        run: |
+          echo "🧾 Vérification des descriptions..."
+          erreurs=0
+          for d in $(find photos videos -type d); do
+            if ls "$d"/*.{jpg,jpeg,png,mp4} >/dev/null 2>&1; then
+              if [ ! -f "$d/DESCRIPTION.md" ]; then
+                echo "❌ Pas de DESCRIPTION.md dans : $d"
+                erreurs=1
+              fi
+            fi
+          done
+          if [ $erreurs -eq 1 ]; then exit 1; fi
+          echo "✔️ Toutes les descriptions sont présentes"
+
+      ############################################################
+      # 4. VÉRIFICATION DES EXTENSIONS DANGEREUSES
+      ############################################################
+      - name: Vérification des extensions interdites
+        run: |
