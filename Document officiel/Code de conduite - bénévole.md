@@ -1,4 +1,4 @@
-🧭 Code de Conduite – La Roulotte Solidaire (Toulouse)
+🧭 Code de Conduite pour les bénévoles - La Roulotte Solidaire (Toulouse)
 
 Ce Code de Conduite s’applique à l’ensemble des bénévoles, contributeurs et personnes participant aux activités de La Roulotte Solidaire, que ce soit sur le terrain, en ligne ou dans les espaces de travail collaboratifs (dont ce dépôt GitHub).  
 Il vise à garantir un environnement sûr, respectueux, digne et inclusif pour toutes et tous.
