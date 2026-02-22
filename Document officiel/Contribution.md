@@ -1,10 +1,3 @@
-Voici un CONTRIBUTING.md spécialement conçu pour La Roulotte Solidaire de Toulouse.  
-Il est clair, structuré, adapté à un dépôt GitHub associatif, et pensé pour guider les bénévoles et contributeurs techniques sans jargon inutile.
-
-Tu peux l’utiliser tel quel dans ton dépôt.
-
----
-
 🤝 Contribuer au dépôt – La Roulotte Solidaire (Toulouse)
 
 Merci de votre intérêt pour contribuer au dépôt GitHub de La Roulotte Solidaire.  
