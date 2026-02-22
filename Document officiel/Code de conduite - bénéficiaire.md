@@ -1,12 +1,3 @@
-Voici un Code de conduite pour les bénéficiaires, pensé pour La Roulotte Solidaire, clair, respectueux et facile à afficher ou intégrer dans ton dépôt GitHub.  
-Il est rédigé dans un esprit de dignité, sécurité et convivialité, sans jamais infantiliser ni stigmatiser.
-
-Tu peux l’utiliser tel quel sous :
-
-CODEOFCONDUCT_BENEFICIAIRES.md
-
----
-
 🤝 Code de Conduite pour les Bénéficiaires
 La Roulotte Solidaire – Toulouse
 
