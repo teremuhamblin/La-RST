@@ -1,11 +1,4 @@
-Parfait, Teremu — allons chercher des badges personnalisés, vraiment adaptés à La Roulotte Solidaire, avec une identité forte, chaleureuse et professionnelle.  
-Je t’en propose plusieurs catégories : institutionnels, communautaires, techniques, et même des badges sur‑mesure aux couleurs de l’asso.
-
-Tu pourras choisir ceux que tu veux intégrer en haut du README.
-
----
-
-🎨 Badges personnalisés – Spécial La Roulotte Solidaire
+🎨 Badges personnalisés – La Roulotte Solidaire
 
 🟣 Identité & valeurs
 `markdown
