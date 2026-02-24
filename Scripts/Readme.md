@@ -1,5 +1,5 @@
 
-Script de nommage automatique pensé pour ton usage associatif : simple, robuste, compatible Windows/macOS/Linux, et parfaitement adapté à l’organisation des photos/vidéos de La Roulotte Solidaire.
+Script de nommage automatique pensé pour notre usage associatif : simple, robuste, compatible Windows/macOS/Linux, et parfaitement adapté à l’organisation des photos/vidéos de La Roulotte Solidaire.
 
 Deux versions :
 
